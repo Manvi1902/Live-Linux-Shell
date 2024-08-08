@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        <h1>Live Linux Command</h1>
+        <pre>
+        <div id ="d1">waiting...</div>
+    
+        <form>
+         <label> command </label>
+         <input type="text" placeholder="Enter you command" id="cmd" name="cmd"/>
+        
+         <label> button: </label>
+         <input type="button" value="run" onclick="send()"/>
+        
+         </form>
+    </div>
+        
+        <script>
+        
+            function send(){
+                command = document.getElementById("cmd").value;
+        
+                const myhttp = new XMLHttpRequest();
+                url=""
+        
+                myhttp.open("GET",url,true)
+                myhttp.send();
+        
+                myhttp.onreadystatechange = function(){
+                    if(this.readyState==4){
+                        document.getElementById("d1").innerHTML = myhttp.responseText;
+                    }
+                }
+        
+            }
+        
+        </script>
+     
+</body>
+</html>
